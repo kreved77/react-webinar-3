@@ -70,8 +70,12 @@ class Store {
       list: this.state.list.map(item => {
         if (item.code === code) {
           item.selected = !item.selected;
+          if (item.itemClicks == null) {  // Проверка на наличие выделений в прошлом
+            item.itemClicks = 0; // если их не было - устанавливаем в 0
+          }
+          ++item.itemClicks;
         } else {
-          item.selected = false;
+          item.selected = false;    // отмена выделения всех записи, кроме текущей
         }
         return item;
       })

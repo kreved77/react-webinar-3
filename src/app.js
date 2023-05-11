@@ -11,6 +11,14 @@ function App({store}) {
 
   const list = store.getState().list;
 
+  /**
+   * Вывод количества выделений записи
+   */
+  const printItemClicks = (itemClicks) => {
+    var ending = (itemClicks >= 2 && itemClicks <= 4) ? 'а' : '';
+    return itemClicks ? '| Выделяли ' + itemClicks + ' раз' + ending : '';
+  }
+
   return (
     <div className='App'>
       <div className='App-head'>
@@ -26,7 +34,8 @@ function App({store}) {
               <div className={'Item' + (item.selected ? ' Item_selected' : '')}
                    onClick={() => store.selectItem(item.code)}>
                 <div className='Item-code'>{item.code}</div>
-                <div className='Item-title'>{item.title}</div>
+                <div className='Item-title'>{item.title} {printItemClicks(item.itemClicks)}</div>
+                {/* <div className='Item-title'>{`${item.title} ${printItemClicks(item.itemClicks)}`}</div> */}
                 <div className='Item-actions'>
                   <button onClick={() => store.deleteItem(item.code)}>
                     Удалить
