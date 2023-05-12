@@ -73,7 +73,9 @@ class Store {
           if (item.itemClicks == null) {  // Проверка на наличие выделений в прошлом
             item.itemClicks = 0; // если их не было - устанавливаем в 0
           }
-          ++item.itemClicks;
+          if (item.selected == true) { // проверка для срабатывания счетчика - только при выделении, а не при каждом клике
+            ++item.itemClicks;
+          }
         } else {
           item.selected = false;    // отмена выделения всех записи, кроме текущей
         }

@@ -15,7 +15,8 @@ function App({store}) {
    * Вывод количества выделений записи
    */
   const printItemClicks = (itemClicks) => {
-    var ending = (itemClicks >= 2 && itemClicks <= 4) ? 'а' : '';
+    var ending = (itemClicks % 10 >= 2 && itemClicks % 10 <= 4) 
+               & (itemClicks % 100 != 12 && itemClicks % 100 != 13 && itemClicks % 100 != 14) ? 'а' : '';
     return itemClicks ? '| Выделяли ' + itemClicks + ' раз' + ending : '';
   }
 
