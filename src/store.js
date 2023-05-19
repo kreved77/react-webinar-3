@@ -50,6 +50,28 @@ class Store {
     })
   };
 
+  addCartItem(code) {
+    const cartList = [...this.state.cartList];
+    const existingItem = cartList.find((el) => el.code == code);
+    if (existingItem) {
+      ++existingItem.count;
+    } else {
+      const item = this.state.list.find((el) => el.code == code);
+      cartList.push({ ...item, count: 1 });
+    }
+    this.setState({
+      ...this.state,
+      cartList,
+    });
+  }
+
+  deleteCartItem(code) {
+    this.setState({
+      ...this.state,
+      cartList: this.state.cartList.filter((el) => el.code !== code),
+    });
+  }
+
   /**
    * Удаление записи по коду
    * @param code

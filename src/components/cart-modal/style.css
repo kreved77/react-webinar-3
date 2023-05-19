@@ -1,0 +1,33 @@
+.Cart-modal {
+	position: absolute;
+	margin: auto;
+	left: 0;
+	right: 0;
+	width: 70%;
+	height: 70%;
+	background: #fff;
+	box-sizing: border-box;
+	box-shadow: 0 0 15px 5px #0000003b;
+}
+
+.Cart-modal-close {
+   position: absolute;
+   right: 32px;
+   top: 32px;
+   width: 76px;
+   height: 21px;
+}
+
+
+.Cart-modal-total {
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+	gap: 20px;
+	padding: 20px 40px;
+   margin-right: 64px;
+}
+
+.Head {
+   margin: 0 0 70px 0;
+}
