@@ -1,13 +1,15 @@
 .Cart-modal {
 	position: absolute;
-   margin: 100px auto;
-	left: 0;
-	right: 0;
-	width: 70%;
-	height: 70%;
+   float: left;
+   left: 50%;
+   top: 50%;
+   width: 90vw;
+   max-width: 960px;
 	background: #fff;
 	box-sizing: border-box;
 	box-shadow: 0 0 15px 5px #0000003b;
+   transform: translate(-50%, -50%);
+   border-radius: 12px;
 }
 
 .Cart-modal-overlay {
@@ -34,10 +36,11 @@
    align-items: center;
    justify-content: flex-end;
 	gap: 20px;
-	padding: 20px 40px;
-   margin-right: 64px;
+	padding: 20px 100px;
+   margin: 0 0 64px 0;
 }
 
-.Head {
-   margin: 0 0 70px 0;
+.Cart-modal .Head {
+   margin: 0 0 64px 0;
+   border-radius: 12px 12px 0 0;
 }
