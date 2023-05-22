@@ -13,13 +13,16 @@
 }
 
 .Cart-modal-overlay {
-   position: absolute;
+   position: fixed;
+   overflow-y: scroll;
    z-index: 10;
    top: 0;
    left: 0;
    width: 100%;
    height: 100%;
    background: rgba(0, 0, 0, 0.5);
+   padding-right: 15px; /* Avoid width reflow */
+   overscroll-behavior: contain;
 }
 
 .Cart-modal-close {

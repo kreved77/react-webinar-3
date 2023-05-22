@@ -4,11 +4,11 @@ import List from "../list";
 import {formatMoney} from "../../utils";
 import "./style.css";
 
-const CartModal = ({ list, onDeleteItem, onClose, total }) => {
+const CartModal = ({title, list, onDeleteItem, onClose, total }) => {
   return (
     <div className="Cart-modal-overlay">
       <div className="Cart-modal">
-         <Head title={"Корзина"}>
+         <Head title={title}>
            <button className="Cart-modal-close" onClick={onClose}>
              Закрыть
            </button>

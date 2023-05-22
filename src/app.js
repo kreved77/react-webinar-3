@@ -33,8 +33,9 @@ function App({store}) {
         totalPrice={store.totalPrice}/>
       {modal && (
         <CartModal
+          title={"Корзина"}
           total={store.totalPrice}
-          closeModal={() => setIsOpen(false)}
+          onClose={() => setIsOpen(false)}
           onDeleteItem={callbacks.onDeleteFromCart}
           list={cartList}
         />
