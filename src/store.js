@@ -6,6 +6,7 @@ import {generateCode} from "./utils";
 class Store {
   constructor(initState = {}) {
     this.state = initState;
+    this.totalPrice = 0;
     this.listeners = []; // Слушатели изменений состояния
   }
 
@@ -22,6 +23,12 @@ class Store {
     }
   }
 
+  updateTotalPrice(list) {
+      this.totalPrice = list.length &&
+      list.reduce((total, item) => total + item.price * item.count, 0);
+      return this.totalPrice;
+    };
+    
   /**
    * Выбор состояния
    * @returns {Object}
@@ -63,6 +70,7 @@ class Store {
       ...this.state,
       cartList,
     });
+    this.updateTotalPrice(this.state.cartList);
   }
 
   deleteCartItem(code) {
@@ -70,6 +78,7 @@ class Store {
       ...this.state,
       cartList: this.state.cartList.filter((el) => el.code !== code),
     });
+    this.updateTotalPrice(this.state.cartList);
   }
 
   /**

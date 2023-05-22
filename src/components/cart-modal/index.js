@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "../head";
 import List from "../list";
+import {formatMoney} from "../../utils";
 import "./style.css";
 
 const CartModal = ({ list, onDeleteItem, onClose, total }) => {
@@ -18,7 +19,7 @@ const CartModal = ({ list, onDeleteItem, onClose, total }) => {
              {list.length > 0 ? `Итого` : 'Корзина пуста'}
            </strong>
            <strong>
-             {total == '0 ₽' & !list.length ? '' : total}
+            {list.length ? `${formatMoney(total)}` : ''}
            </strong>
          </div>
          {/* <div className="Cart-modal-total">

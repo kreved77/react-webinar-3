@@ -1,6 +1,7 @@
 import React, {useCallback} from 'react';
 import List from "./components/list";
 import Controls from "./components/controls";
+import CartModal from "./components/cart-modal";
 import Head from "./components/head";
 import PageLayout from "./components/page-layout";
 
@@ -12,6 +13,7 @@ import PageLayout from "./components/page-layout";
 function App({store}) {
 
   const {list, cartList} = store.getState();
+  const [modal, setIsOpen] = React.useState(false);
 
   const callbacks = {
    onDeleteFromCart: useCallback((code) => {
@@ -27,7 +29,16 @@ function App({store}) {
     <PageLayout>
       <Head title="Магазин" />
       <Controls list={cartList}
-        onDeleteItem={callbacks.onDeleteFromCart}/>
+        showModal={() => setIsOpen(true)}
+        totalPrice={store.totalPrice}/>
+      {modal && (
+        <CartModal
+          total={store.totalPrice}
+          closeModal={() => setIsOpen(false)}
+          onDeleteItem={callbacks.onDeleteFromCart}
+          list={cartList}
+        />
+      )}
       <List list={list}
         onAction={callbacks.onAddToCart}
         actionTitle={"Добавить"}/>
